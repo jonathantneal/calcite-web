@@ -3,8 +3,8 @@
 // └──────────────┘
 
 // Asset Paths
-$image-path:                     '../img'   !default;
-$font-path:                      '../fonts' !default;
+$image-path:                     "../img"   !default;
+$font-path:                      "../fonts" !default;
 
 // Sass Output
 $include-colors:                 true    !default;
@@ -18,8 +18,8 @@ $include-reset:                  $generate-css    !default;
 $include-utils:                  $generate-css    !default;
 
 $include-grid:                   $generate-css    !default;
-  $fold-grid:                    $generate-css    !default;
-  $block-grid:                   $generate-css    !default;
+$fold-grid:                      $generate-css    !default;
+$block-grid:                     $generate-css    !default;
 
 // Grid Utilities Output
 $include-leader-trailer:         $generate-css    !default;
@@ -30,17 +30,17 @@ $include-sticky:                 $generate-css    !default;
 
 // Type Output
 $include-type:                   $generate-css    !default;
-  $include-primary-family:       true             !default;
-  $include-code-family:          $generate-css    !default;
-  $include-i18n:                 $generate-css    !default;
-  $include-type-defaults:        $generate-css    !default;
-  $include-type-helpers:         $generate-css    !default;
+$include-primary-family:         true             !default;
+$include-code-family:            $generate-css    !default;
+$include-i18n:                   $generate-css    !default;
+$include-type-defaults:          $generate-css    !default;
+$include-type-helpers:           $generate-css    !default;
 
 // Icons
 $include-icons:                  $generate-css    !default;
-  $include-calcite-icons:        $generate-css    !default;
-  $include-social-icons:         $generate-css    !default;
-  $include-icon-font:            $generate-css    !default;
+$include-calcite-icons:          $generate-css    !default;
+$include-social-icons:           $generate-css    !default;
+$include-icon-font:              $generate-css    !default;
 
 // Components
 $include-alerts:                 $generate-css    !default;
@@ -143,6 +143,6 @@ $include-filter-dropdown:        $generate-css    !default;
 
 // Modifiers
 // modifier classes override standard styles
-@import 'calcite-web/type/helpers';
+@import "calcite-web/type/helpers";
 @import "calcite-web/grid/leader-trailer";
 @import "calcite-web/grid/gutter-helpers";
