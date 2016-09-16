@@ -3,10 +3,10 @@
 // └──────────────┘
 //  ↳ http://esri.github.io/calcite-web/sass/#ui-variables
 //  ↳ sass → _ui-variables.md
-$transition:               150ms linear                !default;
-$box-shadow:               0 0 16px 0 rgba(0,0,0,.05)  !default;
-$drawer-width:             280px                       !default;
-$easing-function:          cubic-bezier(0.215, 0.440, 0.420, 0.880) !default;
+$transition:               150ms linear                   !default;
+$box-shadow:               0 0 16px 0 rgba(0,0,0,.05)     !default;
+$drawer-width:             280px                          !default;
+$easing-function:          cubic-bezier(.215,.44,.42,.88) !default;
 
 // ┌─────────────┐
 // │ TYPE COLORS │
@@ -31,7 +31,7 @@ $large:                    1450px                      !default;
 //  ↳ grid → _configuration.md
 $prefix:                   ""                          !default;
 
-$vw-ratio:                 0.95;
+$vw-ratio:                 .95;
 $container-width:          1450px                      !default;
 $max-width:                $vw-ratio * 100vw           !default;
 $column-gutter:            1rem                        !default;
@@ -42,18 +42,18 @@ $column-gutter-fallback:   20px                        !default;
 $container-width-fallback: 960px                       !default;
 
 // Medium
-$large-class:             'large'                      !default;
+$large-class:             "large"                      !default;
 $large-column-count:      24                           !default;
 
 // Default
 $default-column-count:     24                          !default;
 
 // Medium
-$medium-class:             'tablet'                    !default;
+$medium-class:             "tablet"                    !default;
 $medium-column-count:      12                          !default;
 
 // Small
-$small-class:              'phone'                     !default;
+$small-class:              "phone"                     !default;
 $small-column-count:       6                           !default;
 
 // Rhythm
