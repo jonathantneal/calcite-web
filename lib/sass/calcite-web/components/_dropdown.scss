@@ -5,82 +5,108 @@
 //  ↳ components → _dropdowns.md
 
 @mixin dropdown {
-  position: relative;
   display: inline-block;
+  position: relative;
+
   &.is-active .dropdown-menu {
     display: block;
   }
 }
 
-  @mixin dropdown-link() {
-    position: relative;
-    display: block;
-    @include box-sizing(border-box);
-    padding: $baseline/3;
-    @include font-size(-2);
-    color: $darker-gray;
-    background-color: $white;
-    border-top: 1px solid $lightest-gray;
-    white-space: nowrap;
-    cursor: pointer;
-    &:hover {
-      background-color: $off-white;
-      text-decoration: none;
-      color: $darker-gray;
-    }
-    &.is-active, &:focus {
-      text-indent: -3px;
-      border-left: 3px solid $blue;
-    }
-  }
+@mixin dropdown-link() {
+  background-color: $white;
+  border-top: 1px solid $lightest-gray;
+  color: $darker-gray;
+  cursor: pointer;
+  display: block;
+  padding: $baseline / 3;
+  position: relative;
+  white-space: nowrap;
 
-  @mixin dropdown-title() {
-    @include dropdown-link();
+  @include box-sizing(border-box);
+  @include font-size(-2);
+
+  &:hover {
     background-color: $off-white;
-    cursor: auto;
+    color: $darker-gray;
+    text-decoration: none;
   }
 
-  @mixin dropdown-btn {
-    padding-right: 1.5rem;
-    cursor: pointer;
-    position: relative;
-    &:after {
-      @include font-size(-5);
-      @extend %icon-font-after;
-      @extend .icon-ui-down-arrow:before;
-      line-height: 2.25em;
-      position: absolute;
-      right: .5rem;
-    }
-    html[dir="rtl"] &:after {
-      right: auto;
-      left: .5rem;
-      padding-left: 0;
-    }
-
-    html[dir="rtl"] & {
-      padding-left: 1.5rem;
-      padding-right: 0.9rem;
-    }
+  &.is-active, &:focus {
+    border-left: 3px solid $blue;
+    text-indent: -3px;
   }
+}
 
-  @mixin dropdown-menu {
+@mixin dropdown-title() {
+  @include dropdown-link();
+
+  background-color: $off-white;
+  cursor: auto;
+}
+
+@mixin dropdown-btn {
+  cursor: pointer;
+  padding-right: 1.5rem;
+  position: relative;
+
+  &::after {
+    @include font-size(-5);
+
+    @extend %icon-font-after;
+    @extend .icon-ui-down-arrow:before;
+
+    line-height: 2.25em;
     position: absolute;
-    min-width: 200px;
-    @include box-shadow($box-shadow);
-    @extend .side-nav;
-    z-index: 1000;
-    display: none;
-    overflow: auto;
-    &.dropdown-right {
-      right: 0;
-    }
+    right: .5rem;
   }
+
+  html[dir="rtl"] &::after {
+    left: .5rem;
+    padding-left: 0;
+    right: auto;
+  }
+
+  html[dir="rtl"] & {
+    padding-left: 1.5rem;
+    padding-right: .9rem;
+  }
+}
+
+@mixin dropdown-menu {
+  @include box-shadow($box-shadow);
+
+  @extend .side-nav;
+
+  display: none;
+  min-width: 200px;
+  overflow: auto;
+  position: absolute;
+  z-index: 1000;
+
+  &.dropdown-right {
+    right: 0;
+  }
+}
 
 @if $include-dropdowns == true {
-  .dropdown { @include dropdown(); }
-  .dropdown-btn { @include dropdown-btn(); }
-  .dropdown-menu { @include dropdown-menu(); }
-  .dropdown-title {@include dropdown-title();}
-  .dropdown-link { @include dropdown-link();}
+  .dropdown {
+    @include dropdown();
+  }
+
+  .dropdown-btn {
+    @include dropdown-btn();
+  }
+
+  .dropdown-menu {
+    @include dropdown-menu();
+  }
+
+  .dropdown-title {
+    @include dropdown-title();
+  }
+
+  .dropdown-link {
+    @include dropdown-link();
+  }
 }

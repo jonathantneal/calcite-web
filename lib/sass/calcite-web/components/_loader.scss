@@ -4,62 +4,70 @@
 //  ↳ http://esri.github.io/calcite-web/components/#loader
 //  ↳ components → _loader.md
 
-$loader-width: 0.85rem;
+$loader-width: .85rem;
 $loader-height: 2rem;
-$loader-zoom: 0.5rem;
+$loader-zoom: .5rem;
 $loader-spacing: 1.25rem;
-$loader-speed: 0.8s;
-$loader-delay: 0.16s;
+$loader-speed: .8s;
+$loader-delay: .16s;
 
 @mixin loader() {
   display: none;
   position: relative;
+
   &.is-active {
     display: block;
   }
 }
 
 %loader-styles {
-  background: $blue;
   -webkit-animation: load $loader-speed infinite ease-in-out;
   animation: load $loader-speed infinite ease-in-out;
-  width: $loader-width;
+  background: $blue;
   height: $loader-height;
+  width: $loader-width;
 }
 
 %loader-pseudoelements {
   @extend %loader-styles;
+
+  content: "";
   position: absolute;
   top: 0;
-  content: '';
 }
 
 @mixin loader-bars() {
   @extend %loader-styles;
-  text-indent: -9999em;
+
+  -webkit-animation-delay: $loader-delay;
+  animation-delay: $loader-delay;
+  font-size: 11px;
   margin: auto;
   position: absolute;
   right: 50%;
-  font-size: 11px;
-  -webkit-animation-delay: $loader-delay;
-  animation-delay: $loader-delay;
-  &:before{
+  text-indent: -9999em;
+
+  &::before {
     @extend %loader-pseudoelements;
+
     left: -$loader-spacing;
   }
-  &:after {
+
+  &::after {
     @extend %loader-pseudoelements;
-    left: $loader-spacing;
     -webkit-animation-delay: 2*$loader-delay;
     animation-delay: 2*$loader-delay;
+    left: $loader-spacing;
   }
 }
 
 @mixin loader-text() {
-  text-align: center;
   padding-top: 4rem;
+  text-align: center;
+
   @include avenir-regular();
-  &:after {
+
+  &::after {
     content: "…";
   }
 }
@@ -69,56 +77,67 @@ $loader-delay: 0.16s;
     0%,
     80%,
     100% {
-      opacity: .75;
       box-shadow: 0 0 $blue;
       height: $loader-height;
+      opacity: .75;
     }
+
     40% {
-      opacity: 1;
       box-shadow: 0 -1*$loader-zoom $blue;
       height: $loader-height+$loader-zoom;
+      opacity: 1;
     }
   }
+
   @keyframes load {
-    0%,
-    80%,
-    100% {
-      opacity: .75;
+    0%, 80%, 100% {
       box-shadow: 0 0 $blue;
       height: $loader-height;
+      opacity: .75;
     }
+
     40% {
-      opacity: 1;
       box-shadow: 0 -1*$loader-zoom $blue;
       height: $loader-height+$loader-zoom;
+      opacity: 1;
     }
   }
 
-  .loader {@include loader();}
-    .loader-bars {@include loader-bars();}
-    .loader-text {@include loader-text();}
+  .loader {
+    @include loader();
+  }
 
-   .ie9 {
+  .loader-bars {
+    @include loader-bars();
+  }
+
+  .loader-text {
+    @include loader-text();
+  }
+
+  .ie9 {
     .loader-bars {
-      position: inherit;
-      background-color: transparent;
-      background-image: url('../img/loader-ie9.gif');
-      background-position: center top;
+      -webkit-animation: none;
       animation: none;
       -webkit-animation-delay: none;
-      -webkit-animation: none;
-      width: 64px;
+      background-color: transparent;
+      background-image: url(../img/loader-ie9.gif);
+      background-position: center top;
       height: 64px;
-      &:before, &:after {
-        background: none;
-        animation: none;
+      position: inherit;
+      width: 64px;
+
+      &::before, &::after {
         -webkit-animation: none;
-        width: 0px;
-        height: 0px;
+        animation: none;
+        background: none;
+        height: 0;
+        width: 0;
       }
     }
+
     .loader-text {
       padding-top: 2rem;
     }
-   }
+  }
 }

@@ -1,69 +1,87 @@
 @mixin badge() {
- @include clearfix();
- text-decoration: none;
- display: inline-block;
+  @include clearfix();
+
+  display: inline-block;
+  text-decoration: none;
 }
 
-  @mixin badge-action() {
-    @include font-size(-3);
-    @include left();
-    display: inline-block;
-    padding: $baseline/8 $baseline/4;
-    border: 1px solid $lighter-gray;
-    background-color: $lightest-gray;
-    cursor: inherit;
-  }
+@mixin badge-action() {
+  @include font-size(-3);
+  @include left();
 
-  @mixin badge-count() {
-    @include font-size(-3);
-    @include left();
-    padding: $baseline/8 $baseline/4;
-    border: 1px solid $lighter-gray;
-    border-left: none;
-    @if ($include-right-to-left) {
-      html[dir="rtl"] & {
-        border-left: 1px solid $lighter-gray;
-        border-right: none;
-      }
+  background-color: $lightest-gray;
+  border: 1px solid $lighter-gray;
+  cursor: inherit;
+  display: inline-block;
+  padding: $baseline/8 $baseline/4;
+}
+
+@mixin badge-count() {
+  @include font-size(-3);
+  @include left();
+
+  border: 1px solid $lighter-gray;
+  border-left: none;
+  padding: $baseline/8 $baseline/4;
+
+  @if ($include-right-to-left) {
+    html[dir="rtl"] & {
+      border-left: 1px solid $lighter-gray;
+      border-right: none;
     }
   }
+}
 
-  @mixin badge-blue() {
-    .badge-action {
-      color: $white;
-      background-color: $dark-blue;
-      border-color: $blue;
-    }
-
-    .badge-count {
-      border-color: $dark-gray;
-    }
+@mixin badge-blue() {
+  .badge-action {
+    background-color: $dark-blue;
+    border-color: $blue;
+    color: $white;
   }
 
-  @mixin badge-round() {
-    .badge-action {
-      @include font-size(-2);
-      background-color: transparent;
-      border:none;
-    }
-
-    .badge-count {
-      border-color: $blue;
-      background-color: $dark-blue;
-      border-radius: 50% 50%;
-      width: 1em;
-      line-height: 1.5em;
-      margin-top: 0.2rem;
-      text-align: center;
-      color: $white;
-    }
+  .badge-count {
+    border-color: $dark-gray;
   }
+}
+
+@mixin badge-round() {
+  .badge-action {
+    @include font-size(-2);
+
+    background-color: transparent;
+    border: none;
+  }
+
+  .badge-count {
+    background-color: $dark-blue;
+    border-color: $blue;
+    border-radius: 50% 50%;
+    color: $white;
+    line-height: 1.5em;
+    margin-top: .2rem;
+    text-align: center;
+    width: 1em;
+  }
+}
 
 @if $include-badges == true {
-  .badge                {@include badge(); }
-    .badge-action       {@include badge-action(); }
-    .badge-count        {@include badge-count(); }
-    .badge-blue         {@include badge-blue(); }
-    .badge-round        {@include badge-round(); }
+  .badge {
+    @include badge();
+  }
 
+  .badge-action {
+    @include badge-action();
+  }
+
+  .badge-count {
+    @include badge-count();
+  }
+
+  .badge-blue {
+    @include badge-blue();
+  }
+
+  .badge-round {
+    @include badge-round();
+  }
 }
