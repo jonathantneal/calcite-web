@@ -5,30 +5,36 @@
 //  ↳ grid → _gutter.md
 
 @mixin gutter-left-quarter() {
-  padding-left:  $column-gutter/4;
+  padding-left: $column-gutter / 4;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      padding-right:  $column-gutter/4;
+      padding-right: $column-gutter / 4;
     }
   }
 }
+
 @mixin margin-gutter-left-quarter() {
-  margin-left:  $column-gutter/4;
+  margin-left: $column-gutter/4;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       // margin-left: 0;
-      margin-right:  $column-gutter/4;
+      margin-right: $column-gutter/4;
     }
   }
 }
+
 @mixin gutter-right-quarter() {
   padding-right: $column-gutter/4;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       padding-left: $column-gutter/4;
     }
   }
 }
+
 @mixin margin-gutter-right-quarter() {
   margin-right: $column-gutter/4;
   @if ($include-right-to-left) {
@@ -37,86 +43,106 @@
     }
   }
 }
+
 @mixin gutter-left-third() {
-  padding-left:  $column-gutter/3;
+  padding-left: $column-gutter / 3;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      padding-right:  $column-gutter/3;
+      padding-right: $column-gutter/3;
     }
   }
 }
+
 @mixin margin-gutter-left-third() {
-  margin-left:  $column-gutter/3;
+  margin-left: $column-gutter / 3;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      margin-right:  $column-gutter/3;
+      margin-right: $column-gutter / 3;
     }
   }
 }
+
 @mixin gutter-right-third() {
   padding-right: $column-gutter/3;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      padding-left: $column-gutter/3;
+      padding-left: $column-gutter / 3;
     }
   }
 }
 @mixin margin-gutter-right-third() {
-  margin-right: $column-gutter/3;
+  margin-right: $column-gutter / 3;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      margin-left: $column-gutter/3;
+      margin-left: $column-gutter / 3;
     }
   }
 }
+
 @mixin gutter-left-half() {
-  padding-left:  $column-gutter/2;
+  padding-left: $column-gutter / 2;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      padding-right:  $column-gutter/2;
+      padding-right: $column-gutter / 2;
     }
   }
 }
+
 @mixin margin-gutter-left-half() {
-  margin-left:  $column-gutter/2;
+  margin-left: $column-gutter / 2;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      margin-right:  $column-gutter/2;
+      margin-right: $column-gutter / 2;
     }
   }
 }
+
 @mixin gutter-right-half() {
-  padding-right: $column-gutter/2;
+  padding-right: $column-gutter / 2;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      padding-left: $column-gutter/2;
+      padding-left: $column-gutter / 2;
     }
   }
 }
+
 @mixin margin-gutter-right-half() {
-  margin-right: $column-gutter/2;
+  margin-right: $column-gutter / 2;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
-      margin-left: $column-gutter/2;
+      margin-left: $column-gutter / 2;
     }
   }
 }
+
 @mixin gutter-left($n) {
-  padding-left:  $n * $column-gutter;
+  padding-left: $n * $column-gutter;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       padding-right: $n * $column-gutter;
     }
   }
 }
+
 @mixin margin-gutter-left($n) {
-  margin-left:  $n * $column-gutter;
+  margin-left: $n * $column-gutter;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       margin-right: $n * $column-gutter;
     }
   }
 }
+
 @mixin rtl-gutter-left($n) {
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
@@ -124,6 +150,7 @@
     }
   }
 }
+
 @mixin rtl-margin-gutter-left($n) {
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
@@ -131,8 +158,10 @@
     }
   }
 }
+
 @mixin gutter-right($n) {
   padding-right: $n * $column-gutter;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       // padding-right: 0;
@@ -140,6 +169,7 @@
     }
   }
 }
+
 @mixin rtl-gutter-right($n) {
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
@@ -147,14 +177,17 @@
     }
   }
 }
+
 @mixin margin-gutter-right($n) {
   margin-right: $n * $column-gutter;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       margin-left: $n * $column-gutter;
     }
   }
 }
+
 @mixin rtl-margin-gutter-right($n) {
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
@@ -162,6 +195,7 @@
     }
   }
 }
+
 // Responsive gutter-left and gutter-right
 @mixin responsive-gutter() {
   @if $fold-grid == true {
@@ -169,16 +203,19 @@
     // Medium
     @media screen and (max-width: $medium - 1) {
       @for $i from 0 through $horizontal-range {
-        .#{$medium-class}-gutter-left-#{$i}  {
-          padding-left:     $i * $column-gutter;
+        .#{$medium-class}-gutter-left-#{$i} {
+          padding-left: $i * $column-gutter;
+
           @if ($include-right-to-left) {
             html[dir="rtl"] & {
               padding-right: $i * $column-gutter;
             }
           }
         }
+
         .#{$medium-class}-gutter-right-#{$i} {
-          padding-right:  $i * $column-gutter;
+          padding-right: $i * $column-gutter;
+
           @if ($include-right-to-left) {
             html[dir="rtl"] & {
               padding-left: $i * $column-gutter;
@@ -191,16 +228,19 @@
     // Small
     @media screen and (max-width: $small - 1) {
       @for $i from 0 through $horizontal-range {
-        .#{$small-class}-gutter-left-#{$i}  {
-          padding-left:     $i * $column-gutter;
+        .#{$small-class}-gutter-left-#{$i} {
+          padding-left: $i * $column-gutter;
+
           @if ($include-right-to-left) {
             html[dir="rtl"] & {
               padding-right: $i * $column-gutter;
             }
           }
         }
+
         .#{$small-class}-gutter-right-#{$i} {
-          padding-right:  $i * $column-gutter;
+          padding-right: $i * $column-gutter;
+
           @if ($include-right-to-left) {
             html[dir="rtl"] & {
               padding-left: $i * $column-gutter;
@@ -211,4 +251,3 @@
     }
   }
 }
-

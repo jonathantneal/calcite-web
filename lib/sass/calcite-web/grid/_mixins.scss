@@ -1,13 +1,16 @@
 @mixin left() {
   float: left;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       float: right;
     }
   }
 }
+
 @mixin right() {
   float: right;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       float: left;
@@ -25,6 +28,7 @@
 
 @mixin pre($n, $count: $large-column-count) {
   margin-left: ($n / $count) * $max-width !important;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       margin-right: ($n / $count) * $max-width !important;
@@ -35,7 +39,9 @@
 @mixin pre-calc($n, $count: $large-column-count) {
   $margin: ($n / $count) * $max-width;
   $clear: $column-gutter / 2;
+
   margin-left: calc(#{$margin} - #{$clear}) !important;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       margin-right: calc(#{$margin} - #{$clear}) !important;
@@ -45,10 +51,10 @@
 
 @mixin post($n, $count: $large-column-count) {
   margin-right: ($n / $count) * $max-width !important;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       margin-left: ($n / $count) * $max-width !important;
     }
   }
 }
-

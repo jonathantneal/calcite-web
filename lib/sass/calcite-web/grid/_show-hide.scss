@@ -5,40 +5,90 @@
 //  ↳ grid → _show-and-hide.md
 
 // Responsive Show and Hide
-@mixin responsive-show-hide(){
+@mixin responsive-show-hide() {
   @if $fold-grid == true {
 
     @media screen and (min-width: $large) {
-      .#{$small-class}-show   {@include hide();}
-      .#{$medium-class}-show  {@include hide();}
-      .#{$medium-class}-only  {@include hide();}
-      .#{$large-class}-hide   {@include hide();}
+      .#{$small-class}-show {
+        @include hide();
+      }
+
+      .#{$medium-class}-show {
+        @include hide();
+      }
+
+      .#{$medium-class}-only {
+        @include hide();
+      }
+
+      .#{$large-class}-hide {
+        @include hide();
+      }
     }
 
     // Default
     @media screen and (max-width: $large - 1) and (min-width: $medium) {
-      .#{$small-class}-show   {@include hide();}
-      .#{$medium-class}-show  {@include hide();}
-      .#{$medium-class}-only  {@include hide();}
-      .#{$large-class}-only   {@include hide();}
-      .#{$large-class}-show   {@include hide();}
+      .#{$small-class}-show {
+        @include hide();
+      }
+
+      .#{$medium-class}-show {
+        @include hide();
+      }
+
+      .#{$medium-class}-only {
+        @include hide();
+      }
+
+      .#{$large-class}-only {
+        @include hide();
+      }
+
+      .#{$large-class}-show {
+        @include hide();
+      }
     }
 
     // Medium
     @media screen and (max-width: $medium - 1) and (min-width: $small) {
-      .#{$medium-class}-hide  {@include hide();}
-      .#{$small-class}-show   {@include hide();}
-      .#{$large-class}-only   {@include hide();}
-      .#{$large-class}-show   {@include hide();}
+      .#{$medium-class}-hide {
+        @include hide();
+      }
+
+      .#{$small-class}-show {
+        @include hide();
+      }
+
+      .#{$large-class}-only {
+        @include hide();
+      }
+
+      .#{$large-class}-show {
+        @include hide();
+      }
     }
 
     // Small
     @media screen and (max-width: $small - 1) {
-      .#{$small-class}-hide   {@include hide();}
-      .#{$medium-class}-hide  {@include hide();}
-      .#{$medium-class}-only  {@include hide();}
-      .#{$large-class}-only   {@include hide();}
-      .#{$large-class}-show   {@include hide();}
+      .#{$small-class}-hide {
+        @include hide();
+      }
+
+      .#{$medium-class}-hide {
+        @include hide();
+      }
+
+      .#{$medium-class}-only {
+        @include hide();
+      }
+
+      .#{$large-class}-only {
+        @include hide();
+      }
+
+      .#{$large-class}-show {
+        @include hide();
+      }
     }
   }
 }
@@ -67,10 +117,23 @@
 
 @if $include-grid == true {
   @include responsive-show-hide();
-  .invisible {@include invisible();}
-  .visible {@include visible();}
-  .hide {@include hide();}
-  .visually-hidden {@include visually-hidden();}
+
+  .invisible {
+    @include invisible();
+  }
+
+  .visible {
+    @include visible();
+  }
+
+  .hide {
+    @include hide();
+  }
+
+  .visually-hidden {
+    @include visually-hidden();
+  }
+
   .visually-hidden-focusable {
     @include visually-hidden();
     @include visually-hidden-focusable();
