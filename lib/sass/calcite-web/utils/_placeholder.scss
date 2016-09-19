@@ -8,18 +8,18 @@
   }
 
   &::-webkit-input-placeholder {
-     #{$property}: $attr;
+    #{$property}: $attr;
   }
 
   &:-moz-placeholder { /* Firefox 18- */
-     #{$property}: $attr;
+    #{$property}: $attr;
   }
 
   &::-moz-placeholder {  /* Firefox 19+ */
-     #{$property}: $attr;
+    #{$property}: $attr;
   }
 
   &:-ms-input-placeholder {
-     #{$property}: $attr;
+    #{$property}: $attr;
   }
 }

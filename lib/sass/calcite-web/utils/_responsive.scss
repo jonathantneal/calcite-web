@@ -9,7 +9,9 @@
     @media #{$type} and (max-width: $max) and (min-width: $min) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media #{$type} and (max-width: $max) {
       @content;
     }
