@@ -6,69 +6,91 @@
 
 @mixin third-nav() {
   @include avenir-regular();
-  border-bottom: 1px solid $lightest-gray;
+
   background-color: $white;
-  padding: $baseline/4 0;
+  border-bottom: 1px solid $lightest-gray;
+  padding: $baseline / 4 0;
   width: 100%;
 }
 
-  @mixin third-nav-container () {
-    position: relative;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding-bottom: 15px;
-    margin-bottom: -15px;
+@mixin third-nav-container() {
+  margin-bottom: -15px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  position: relative;
+  white-space: nowrap;
+}
+
+@mixin nav-overflow() {
+  background-color: rgba($white, .8);
+  display: none;
+  margin: 0;
+  padding: 11px 6px;
+  position: absolute;
+  top: 0;
+
+  &::before {
+    padding-right: 0;
   }
 
-  @mixin nav-overflow() {
-    position: absolute;
-    padding: 11px 6px;
-    top: 0;
-    margin: 0;
-    background-color: rgba($white, .8);
-    display: none;
-    &:before {
-      padding-right: 0;
-    }
-    &.is-active {
-      display: block;
+  &.is-active {
+    display: block;
+  }
+}
+
+@mixin nav-overflow-left() {
+  @include nav-overflow();
+  left: 0;
+}
+
+@mixin nav-overflow-right() {
+  @include nav-overflow();
+  right: 0;
+}
+
+@mixin third-nav-link() {
+  color: $darkest-gray;
+  margin-right: $baseline * .75;
+
+  @include font-size(-2);
+
+  @if ($include-right-to-left) {
+    html[dir="rtl"] & {
+      white-space: nowrap;
     }
   }
 
-    @mixin nav-overflow-left () {
-      @include nav-overflow();
-      left: 0px;
-    }
-
-    @mixin nav-overflow-right () {
-      @include nav-overflow();
-      right: 0px;
-    }
-
-  @mixin third-nav-link() {
-    color: $darkest-gray;
-    @include font-size(-2);
-    margin-right: $baseline * 0.75;
-    @if ($include-right-to-left) {
-      html[dir="rtl"] & {
-        white-space: nowrap;
-      }
-    }
-    &:last-child {
-      margin-right: 1.5*$baseline;
-    }
-    &.is-active {
-      @include avenir-bold();
-    }
-    &.is-active:hover {
-      @extend .link-darkest-gray;
-    }
+  &:last-child {
+    margin-right: 1.5 * $baseline;
   }
+
+  &.is-active {
+    @include avenir-bold();
+  }
+
+  &.is-active:hover {
+    @extend .link-darkest-gray;
+  }
+}
 
 @if $include-third-nav == true {
-  .third-nav {@include third-nav();}
-    .third-nav-container {@include third-nav-container();}
-    .third-nav-link {@include third-nav-link();}
-    .nav-overflow-left {@include nav-overflow-left();}
-    .nav-overflow-right {@include nav-overflow-right();}
+  .third-nav {
+    @include third-nav();
+  }
+
+  .third-nav-container {
+    @include third-nav-container();
+  }
+
+  .third-nav-link {
+    @include third-nav-link();
+  }
+
+  .nav-overflow-left {
+    @include nav-overflow-left();
+  }
+
+  .nav-overflow-right {
+    @include nav-overflow-right();
+  }
 }

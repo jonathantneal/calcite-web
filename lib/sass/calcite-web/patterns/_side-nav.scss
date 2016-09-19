@@ -6,51 +6,66 @@
 
 @mixin side-nav() {
   @include box-sizing(border-box);
-  padding: 0;
+
+  background-color: $white;
   border: 1px solid $lightest-gray;
   border-top: none;
+  padding: 0;
+
   @include avenir-regular();
-  background-color: $white;
 }
 
-  @mixin side-nav-title() {
-    margin: 0;
-    padding: $baseline/3;
-    @include avenir-regular();
-    @include font-size(-1);
+@mixin side-nav-title() {
+  background-color: $off-white;
+  border-top: 1px solid $lightest-gray;
+  margin: 0;
+  padding: $baseline/3;
+
+  @include avenir-regular();
+  @include font-size(-1);
+}
+
+@mixin side-nav-link() {
+  background-color: $white;
+  border-top: 1px solid $lightest-gray;
+  color: $darkest-gray;
+  cursor: pointer;
+  display: block;
+  padding: $baseline/3;
+  position: relative;
+
+  @include box-sizing(border-box);
+  @include font-size(-2);
+
+  &:hover {
     background-color: $off-white;
-    border-top: 1px solid $lightest-gray;
+    color: $off-black;
+    text-decoration: none;
   }
 
-  @mixin side-nav-link() {
-    position: relative;
-    display: block;
-    @include box-sizing(border-box);
-    padding: $baseline/3;
-    @include font-size(-2);
-    color: $darkest-gray;
-    background-color: $white;
-    border-top: 1px solid $lightest-gray;
-    cursor: pointer;
-    &:hover {
-      background-color: $off-white;
-      text-decoration: none;
-      color: $off-black;
-    }
-    &.is-active {
-      text-indent: -3px;
-      border-left: 3px solid $blue;
-      @if ($include-right-to-left) {
-        html[dir="rtl"] & {
-          border-left: none;
-          border-right: 3px solid $blue;
-        }
+  &.is-active {
+    border-left: 3px solid $blue;
+    text-indent: -3px;
+
+    @if ($include-right-to-left) {
+      html[dir="rtl"] & {
+        border-left: none;
+        border-right: 3px solid $blue;
       }
     }
   }
+}
 
 @if $include-side-nav == true {
-  .side-nav {@include side-nav();}
-    .side-nav-title {@include side-nav-title();}
-    .side-nav-link {@include side-nav-link();}
+  .side-nav {
+    @include side-nav();
+  }
+
+  .side-nav-title {
+    @include side-nav-title();
+  }
+
+  .side-nav-link {
+    @include side-nav-link();
+  }
 }
