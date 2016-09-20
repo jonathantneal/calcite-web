@@ -128,6 +128,10 @@
     "extends": "stylelint-config-esri",
     "plugins": [
       "stylelint-scss"
-    ]
+    ],
+    "rules": {
+      "declaration-no-important": null,
+      "value-no-vendor-prefix": null
+    }
   }
 }
